@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Synrgy Chapter 5</string>
+    <string name="title_home">Home</string>
+    <string name="hint_username">Insert username</string>
+    <string name="hint_password">Insert password</string>
+    <string name="hint_login">Login</string>
+    <string name="button_change_language">Change Language</string>
+    <string name="hint_email">Insert Email</string>
+    <string name="hint_confirm_password">Insert Confirm Password</string>
+    <string name="button_register">Register</string>
+    <string name="button_logout">Logout</string>
+    <string name="button_profile">Profile</string>
+    <string name="text_select_blur_amount">Select blur amount</string>
+    <string name="text_little_blurred">a little blurred</string>
+    <string name="text_more_blurred">more blurred</string>
+    <string name="text_the_most_blurred">the most blurred</string>
+    <string name="button_go">Go</string>
+</resources>
