@@ -4,7 +4,7 @@ import android.app.Application
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.example.ch6.data.local.DataStoreManager
 import com.example.ch6.data.remote.RemoteRepository
-import com.example.ch6.data.remote.service.TMDBService
+import com.example.ch6.data.remote.service.SpoonacularService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -30,11 +30,11 @@ class Provider(
 
     private val retrofit: Retrofit = Retrofit.Builder()
         .client(client)
-        .baseUrl("https://api.themoviedb.org/3/")
+        .baseUrl("https://api.spoonacular.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    private val tmdbService: TMDBService = retrofit.create(TMDBService::class.java)
+    private val tmdbService: SpoonacularService = retrofit.create(SpoonacularService::class.java)
 
 //    private val tmdbService: TMDBService = FakeTMDBService()
 
@@ -44,7 +44,7 @@ class Provider(
 //        dataStoreManager = dataStoreManager,
 //    )
 
-    val remoteRepository: RemoteRepository = RemoteRepository(
-        tmdbService = tmdbService,
-    )
+//    val remoteRepository: RemoteRepository = RemoteRepository(
+//        tmdbService = tmdbService,
+//    )
 }

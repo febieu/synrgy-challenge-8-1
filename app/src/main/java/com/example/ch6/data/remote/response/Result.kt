@@ -34,12 +34,12 @@ data class Result(
     val voteCount: Int?
 )
 
-fun Result.toMovie(): Movie {
-    return Movie(
-        overview = overview.orEmpty(),
-        originalTitle = originalTitle.orEmpty(),
-        backdropPath = backdropPath.orEmpty(),
-        id = id ?: -1,
-        posterPath = posterPath.orEmpty(),
-    )
-}
+//fun Result.toMovie(): Movie {
+//    return Movie(
+//        overview = overview.orEmpty(),
+//        originalTitle = originalTitle.orEmpty(),
+//        backdropPath = backdropPath.orEmpty(),
+//        id = id ?: -1,
+//        posterPath = posterPath.orEmpty(),
+//    )
+//}

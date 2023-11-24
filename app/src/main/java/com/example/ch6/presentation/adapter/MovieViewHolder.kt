@@ -9,8 +9,8 @@ class MovieViewHolder(
     private val binding: ItemMovieBinding,
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(movie: Movie) {
-        binding.tvTitleMovie.text = movie.originalTitle
-        binding.tvDescMovie.text = movie.overview
-        binding.ivMovie.load("https://image.tmdb.org/t/p/w500${movie.posterPath}")
+        binding.tvTitleMovie.text = movie.title
+        binding.tvDescMovie.text = movie.restaurantChain
+        binding.ivMovie.load(movie.image)
     }
 }

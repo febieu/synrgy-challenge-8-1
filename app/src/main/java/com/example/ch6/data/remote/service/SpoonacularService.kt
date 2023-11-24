@@ -1,23 +1,24 @@
 package com.example.ch6.data.remote.service
 
-import com.example.ch6.data.remote.response.Response
+import com.example.ch6.data.remote.response.MenuItemRespone
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Query
 
-interface TMDBService {
+interface SpoonacularService {
 
     /**
      * Find movies using over 30 filters and sort options.
      */
-    @GET("discover/movie")
+    @GET("food/menuItems/search")
     suspend fun fetchMovies(
-        @Query("api_key") apiKey: String = "4b9bfb0e83de2a4afb17c157ccb254f3",
-        @Query("with_original_language") withOriginalLanguage: String = "ko",
-    ): Response
-
+        //MenuItem
+        @Query("apiKey") apiKey: String = "bf0138bf61ce4a1a9c3bfdc745cf9559",
+        @Query("number") number: Int = 100,
+        @Query("query") query: String = "pie",
+    ): MenuItemRespone
     @POST("auth/editProfile")
     suspend fun editProfile(
         @Header("Authorization") token: String,

@@ -44,10 +44,6 @@ class LoginActivity : AppCompatActivity() {
             )
         }
 
-        binding?.buttonChangeLanguage?.setOnClickListener {
-            applyLanguage("en", provideIntent(this))
-        }
-
         binding?.buttonRegister?.setOnClickListener {
             register()
         }

@@ -5,7 +5,7 @@ import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.example.ch6.data.local.DataStoreManager
 import com.example.ch6.data.local.LocalRepository
 import com.example.ch6.data.remote.RemoteRepository
-import com.example.ch6.data.remote.service.TMDBService
+import com.example.ch6.data.remote.service.SpoonacularService
 import com.example.ch6.domain.repository.AccountRepository
 import com.example.ch6.domain.repository.AuthRepository
 import com.example.ch6.domain.repository.ImageRepository
@@ -30,7 +30,7 @@ private val generalModule = module {
     single { ChuckerInterceptor(get()) }
     single { HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY } }
     single { provideOkhttpClient(get(), get()) }
-    single { "https://api.themoviedb.org/3/" }
+    single { "https://api.spoonacular.com/" }
     single { GsonConverterFactory.create() }
     single { provideRetrofit(get(), get(), get()) }
     single { provideTMDBService(get()) }
@@ -86,6 +86,6 @@ private fun provideRetrofit(
 
 private fun provideTMDBService(
     retrofit: Retrofit,
-): TMDBService {
-    return retrofit.create(TMDBService::class.java)
+): SpoonacularService {
+    return retrofit.create(SpoonacularService::class.java)
 }
