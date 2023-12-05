@@ -4,10 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ch7.presentation.auth.login.usecase.AuthenticateUseCase
+import com.example.ch7.domain.usecase.AuthenticateUseCase
 import com.example.ch7.presentation.auth.login.usecase.CheckLoginUseCase
 import com.example.ch7.presentation.auth.login.usecase.SaveTokenUseCase
-import kotlinx.coroutines.CloseableCoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
