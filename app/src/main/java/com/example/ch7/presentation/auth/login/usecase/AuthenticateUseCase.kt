@@ -9,11 +9,6 @@ class AuthenticateUseCase (
     override suspend operator fun invoke(
         username: String, password: String
     ): String {
-        if (authRepository.validateInput(username, password)){
-            return authRepository.authenticate(username, password)
-        }
-        else{
-            throw UnsupportedOperationException("username atau password tidak valid!")
-        }
+        return authRepository.authenticate(username, password)
     }
 }
