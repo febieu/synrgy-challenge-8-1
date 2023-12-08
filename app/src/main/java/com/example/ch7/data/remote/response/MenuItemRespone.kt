@@ -14,6 +14,5 @@ data class MenuItemRespone(
     @SerializedName("totalMenuItems")
     val totalMenuItems: Int?,
     @SerializedName("type")
-    val type: String?
+    val type: String?,
 )
-

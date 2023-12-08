@@ -7,13 +7,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ch7.databinding.ActivityLoginBinding
-import com.example.ch7.helper.applyLanguage
 import com.example.ch7.presentation.auth.register.RegisterActivity
 import com.example.ch7.presentation.home.HomeActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
-
     companion object {
         fun provideIntent(context: Context): Intent {
             return Intent(context, LoginActivity::class.java)

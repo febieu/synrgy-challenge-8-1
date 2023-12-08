@@ -9,11 +9,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class RegisterViewModel(
-
     private val registerUseCase: RegisterUseCase,
-
 ) : ViewModel() {
-
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
 

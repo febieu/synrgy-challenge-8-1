@@ -12,9 +12,7 @@ import kotlinx.coroutines.flow.map
 class DataStoreManager(
     private val context: Context,
 ) {
-
     companion object {
-
         private val KEY_TOKEN = stringPreferencesKey("token")
         private val KEY_USER_NAME = stringPreferencesKey("username")
         private val KEY_EMAIL = stringPreferencesKey("email")
@@ -59,6 +57,7 @@ class DataStoreManager(
     suspend fun deleteToken() {
         context.dataStore.edit { settings -> settings.remove(KEY_TOKEN) }
     }
+
     suspend fun saveProfilePhoto(profilePhoto: String) {
         context.dataStore.edit { settings -> settings[KEY_PROFILE_PHOTO] = profilePhoto }
     }

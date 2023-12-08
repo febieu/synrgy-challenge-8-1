@@ -38,7 +38,7 @@ class ProfileViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             accountRepository.loadUsername()
                 .combine(
-                    accountRepository.loadEmail()
+                    accountRepository.loadEmail(),
                 ) { username, email ->
                     Pair(username, email)
                 }
@@ -63,6 +63,7 @@ class ProfileViewModel(
             _logout.value = true
         }
     }
+
     fun loadProfilePhoto() {
         viewModelScope.launch(Dispatchers.IO) {
             accountRepository.loadProfilePhoto()

@@ -28,39 +28,41 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import kotlin.coroutines.CoroutineContext
 
-private val generalModule = module {
-    single { ChuckerInterceptor(get()) }
-    single { HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY } }
-    single { provideOkhttpClient(get(), get()) }
-    single { "https://api.spoonacular.com/" }
-    single { GsonConverterFactory.create() }
-    single { provideRetrofit(get(), get(), get()) }
-    single { provideTMDBService(get()) }
-    single { DataStoreManager(get()) }
-    single { WorkManager.getInstance(get()) }
+private val generalModule =
+    module {
+        single { ChuckerInterceptor(get()) }
+        single { HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY } }
+        single { provideOkhttpClient(get(), get()) }
+        single { "https://api.spoonacular.com/" }
+        single { GsonConverterFactory.create() }
+        single { provideRetrofit(get(), get(), get()) }
+        single { provideTMDBService(get()) }
+        single { DataStoreManager(get()) }
+        single { WorkManager.getInstance(get()) }
 
-    //repository
-    single<AccountRepository> { LocalRepository(get(),get()) }
-    single<AuthRepository> {LocalRepository(get(),get())}
-    single<ImageRepository> {LocalRepository(get(),get())}
+        // repository
+        single<AccountRepository> { LocalRepository(get(), get()) }
+        single<AuthRepository> { LocalRepository(get(), get()) }
+        single<ImageRepository> { LocalRepository(get(), get()) }
 
-    //data
-    single<MovieRepository> { RemoteRepository(get()) }
+        // data
+        single<MovieRepository> { RemoteRepository(get()) }
 
-    //usecase
-    single<AuthenticateUseCase>{ AuthenticateUseCase(get()) }
-    single<CheckLoginUseCase>{ CheckLoginUseCase((get())) }
-    single<SaveTokenUseCase>{ SaveTokenUseCase(get()) }
-    single<RegisterUseCase>{ RegisterUseCase(get()) }
-}
+        // usecase
+        single<AuthenticateUseCase> { AuthenticateUseCase(get()) }
+        single<CheckLoginUseCase> { CheckLoginUseCase((get())) }
+        single<SaveTokenUseCase> { SaveTokenUseCase(get()) }
+        single<RegisterUseCase> { RegisterUseCase(get()) }
+    }
 
-private val viewModelModule = module {
-    viewModel { LoginViewModel(get(), get(), get(), get()) }
-    viewModel { HomeViewModel(get()) }
-    viewModel { RegisterViewModel(get()) }
-    viewModel { ProfileViewModel(get()) }
-    viewModel { BlurViewModel(get(), get()) }
-}
+private val viewModelModule =
+    module {
+        viewModel { LoginViewModel(get(), get(), get(), get()) }
+        viewModel { HomeViewModel(get()) }
+        viewModel { RegisterViewModel(get()) }
+        viewModel { ProfileViewModel(get()) }
+        viewModel { BlurViewModel(get(), get()) }
+    }
 
 val appModules = listOf(generalModule, viewModelModule)
 
@@ -86,12 +88,10 @@ private fun provideRetrofit(
         .build()
 }
 
-private fun provideTMDBService(
-    retrofit: Retrofit,
-): SpoonacularService {
+private fun provideTMDBService(retrofit: Retrofit): SpoonacularService {
     return retrofit.create(SpoonacularService::class.java)
 }
 
-private fun provideDispatcher(): CoroutineContext{
+private fun provideDispatcher(): CoroutineContext {
     return Dispatchers.IO
 }

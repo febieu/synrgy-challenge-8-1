@@ -19,7 +19,6 @@ class LoginViewModel(
     private val checkLoginUseCase: CheckLoginUseCase,
     private val dispatcher: CoroutineContext,
 ) : ViewModel() {
-
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
 
@@ -31,20 +30,20 @@ class LoginViewModel(
 
     fun authenticate(
         username: String,
-        password: String
+        password: String,
     ) {
         _loading.value = true
         viewModelScope.launch(dispatcher) {
-            try{
-                withContext(Dispatchers.Main){
+            try {
+                withContext(Dispatchers.Main) {
                     _authentication.value = authenticateUseCase.invoke(username, password)
                 }
-            } catch(throwable: Throwable){
-                withContext((Dispatchers.Main)){
+            } catch (throwable: Throwable) {
+                withContext((Dispatchers.Main)) {
                     _error.value = throwable.message
                 }
-            } finally{
-                withContext(Dispatchers.Main){
+            } finally {
+                withContext(Dispatchers.Main) {
                     _loading.value = false
                 }
             }

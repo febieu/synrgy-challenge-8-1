@@ -5,10 +5,9 @@ import androidx.lifecycle.ViewModelProvider
 
 @Deprecated(message = "replace by library", level = DeprecationLevel.ERROR)
 class ViewModelFactory(
-    //private val provider: Provider,
+    // private val provider: Provider,
 ) : ViewModelProvider.Factory {
-
-//    companion object {
+    //    companion object {
 //
 //        @Volatile
 //        private var INSTANCE : ViewModelFactory? = null

@@ -21,21 +21,24 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 
 class LocalRepository(
-
     private val dataStoreManager: DataStoreManager,
     private val workManager: WorkManager,
-
-    ): AccountRepository, AuthRepository, ImageRepository {
-
-    override suspend fun validateInput(username: String, password: String): Boolean {
+) : AccountRepository, AuthRepository, ImageRepository {
+    override suspend fun validateInput(
+        username: String,
+        password: String,
+    ): Boolean {
         delay(1000)
-        return username.isNotEmpty()
-                && username.isNotBlank()
-                && password.isNotEmpty()
-                && password.isNotBlank()
+        return username.isNotEmpty() &&
+            username.isNotBlank() &&
+            password.isNotEmpty() &&
+            password.isNotBlank()
     }
 
-    override suspend fun authenticate(username: String, password: String): String {
+    override suspend fun authenticate(
+        username: String,
+        password: String,
+    ): String {
         delay(1000)
         return if (username == "febi" && password == "123456") {
             "token"
@@ -62,24 +65,24 @@ class LocalRepository(
         username: String,
         email: String,
         password: String,
-        confirmPassword: String
+        confirmPassword: String,
     ): Boolean {
-        return username.isNotEmpty()
-                && username.isNotBlank()
-                && email.isNotEmpty()
-                && email.isNotBlank()
-                && email.isEmailValid()
-                && password.isNotEmpty()
-                && password.isNotBlank()
-                && password.isPasswordValid()
-                && password == confirmPassword
+        return username.isNotEmpty() &&
+            username.isNotBlank() &&
+            email.isNotEmpty() &&
+            email.isNotBlank() &&
+            email.isEmailValid() &&
+            password.isNotEmpty() &&
+            password.isNotBlank() &&
+            password.isPasswordValid() &&
+            password == confirmPassword
     }
 
     override suspend fun register(
         username: String,
         email: String,
         password: String,
-        confirmPassword: String
+        confirmPassword: String,
     ) {
         delay(1000)
         dataStoreManager.saveUsername(username)
@@ -101,7 +104,7 @@ class LocalRepository(
         dataStoreManager.deleteToken()
     }
 
-    override suspend fun loadProfilePhoto(): Flow<String?>{
+    override suspend fun loadProfilePhoto(): Flow<String?> {
         return dataStoreManager.loadProfilePhoto()
     }
 
@@ -116,9 +119,10 @@ class LocalRepository(
             OneTimeWorkRequestBuilder<BlurWorker>()
                 .setInputData(setInputDataForUri(imageUri))
                 .addTag(TAG_OUTPUT)
-                .build()
+                .build(),
         ).enqueue()
     }
+
     override fun setInputDataForUri(imageUri: Uri?): Data {
         return Data.Builder().apply {
             putString(KEY_IMAGE_URI, imageUri?.toString())
@@ -128,5 +132,4 @@ class LocalRepository(
     override fun getWorkManagerLiveData(): LiveData<List<WorkInfo>> {
         return workManager.getWorkInfosByTagLiveData(TAG_OUTPUT)
     }
-
 }

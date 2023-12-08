@@ -7,16 +7,15 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.work.WorkInfo
-import com.example.ch7.databinding.ActivityBlurBinding
-import com.example.ch7.helper.worker.KEY_IMAGE_URI
 import com.esafirm.imagepicker.features.ImagePickerConfig
 import com.esafirm.imagepicker.features.ImagePickerMode
 import com.esafirm.imagepicker.features.registerImagePicker
 import com.esafirm.imagepicker.model.Image
+import com.example.ch7.databinding.ActivityBlurBinding
+import com.example.ch7.helper.worker.KEY_IMAGE_URI
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BlurActivity : AppCompatActivity() {
-
     companion object {
         fun startActivity(context: Context) {
             context.startActivity(Intent(context, BlurActivity::class.java))
@@ -26,7 +25,6 @@ class BlurActivity : AppCompatActivity() {
     private val binding by lazy { ActivityBlurBinding.inflate(layoutInflater) }
     private val viewModel by viewModel<BlurViewModel>()
     private val imagePickerLauncher = registerImagePicker(callback = ::handleImageResult)
-
 
     private val imagePickerConfig by lazy { ImagePickerConfig(mode = ImagePickerMode.SINGLE) }
 
@@ -59,7 +57,7 @@ class BlurActivity : AppCompatActivity() {
                 viewModel.setOutputUri(outputImageUrl)
                 viewModel.saveProfilePhoto(outputImageUrl)
                 viewModel.loadProfilePhoto()
-                //binding.ivBlur.setImageURI(Uri.parse(outputImageUrl))
+                // binding.ivBlur.setImageURI(Uri.parse(outputImageUrl))
             }
         } else {
             // todo handle in progress
@@ -72,6 +70,7 @@ class BlurActivity : AppCompatActivity() {
             viewModel.setImageUri(image.uri.toString())
         }
     }
+
     private fun handleProfilePhoto(profilePhoto: String?) {
         profilePhoto?.let { binding.ivBlur.setImageURI(Uri.parse(profilePhoto)) }
     }

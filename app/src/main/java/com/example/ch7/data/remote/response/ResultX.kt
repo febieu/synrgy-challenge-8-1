@@ -10,5 +10,5 @@ data class ResultX(
     @SerializedName("imageType")
     val imageType: String?,
     @SerializedName("title")
-    val title: String?
+    val title: String?,
 )

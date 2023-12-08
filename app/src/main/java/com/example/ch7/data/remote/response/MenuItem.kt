@@ -15,8 +15,9 @@ data class MenuItem(
     @SerializedName("servings")
     val servings: Servings?,
     @SerializedName("title")
-    val title: String?
+    val title: String?,
 )
+
 fun MenuItem.toMovie(): Movie {
     return Movie(
         title = title.orEmpty(),

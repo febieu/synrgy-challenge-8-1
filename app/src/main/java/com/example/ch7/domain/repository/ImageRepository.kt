@@ -11,5 +11,4 @@ interface ImageRepository {
     fun setInputDataForUri(imageUri: Uri?): Data
 
     fun getWorkManagerLiveData(): LiveData<List<WorkInfo>>
-
 }

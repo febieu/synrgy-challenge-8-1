@@ -1,12 +1,7 @@
 package com.example.ch7.data.remote.service
 
-import com.example.ch7.data.remote.response.Response
-import kotlinx.coroutines.delay
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.ResponseBody
-import retrofit2.HttpException
 //
-//class FakeTMDBService : SpoonacularService {
+// class FakeTMDBService : SpoonacularService {
 //    override suspend fun fetchMovies(apiKey: String, withOriginalLanguage: String): Response {
 //        return Response(page = 1, results = emptyList(), totalPages = 1, totalResults = 0)
 //    }
@@ -27,4 +22,4 @@ import retrofit2.HttpException
 //            return editProfileBody
 //        }
 //    }
-//}
+// }

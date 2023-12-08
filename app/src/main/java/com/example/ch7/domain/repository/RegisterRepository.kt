@@ -1,7 +1,6 @@
 package com.example.ch7.domain.repository
 
 interface RegisterRepository {
-
     suspend fun validateInput(
         username: String,
         email: String,

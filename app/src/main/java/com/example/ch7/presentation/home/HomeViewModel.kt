@@ -13,7 +13,6 @@ import kotlinx.coroutines.withContext
 class HomeViewModel(
     private val movieRepository: MovieRepository,
 ) : ViewModel() {
-
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
 

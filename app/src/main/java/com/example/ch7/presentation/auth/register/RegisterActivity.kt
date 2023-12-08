@@ -10,7 +10,6 @@ import com.example.ch7.presentation.home.HomeActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RegisterActivity : AppCompatActivity() {
-
     companion object {
         fun startActivity(context: Context) {
             context.startActivity(Intent(context, RegisterActivity::class.java))

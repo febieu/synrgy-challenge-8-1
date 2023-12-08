@@ -10,5 +10,5 @@ data class RecipesResponse(
     @SerializedName("results")
     val results: List<ResultX>?,
     @SerializedName("totalResults")
-    val totalResults: Int?
+    val totalResults: Int?,
 )

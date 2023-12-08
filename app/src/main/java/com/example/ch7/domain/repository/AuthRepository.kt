@@ -3,10 +3,15 @@ package com.example.ch7.domain.repository
 import kotlinx.coroutines.flow.Flow
 
 interface AuthRepository {
+    suspend fun validateInput(
+        username: String,
+        password: String,
+    ): Boolean
 
-    suspend fun validateInput(username: String, password: String): Boolean
-
-    suspend fun authenticate(username: String, password: String): String
+    suspend fun authenticate(
+        username: String,
+        password: String,
+    ): String
 
     suspend fun saveToken(token: String)
 
@@ -16,13 +21,13 @@ interface AuthRepository {
         username: String,
         email: String,
         password: String,
-        confirmPassword: String
+        confirmPassword: String,
     ): Boolean
 
     suspend fun register(
         username: String,
         email: String,
         password: String,
-        confirmPassword: String
+        confirmPassword: String,
     )
 }

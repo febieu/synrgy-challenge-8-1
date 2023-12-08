@@ -14,7 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-
 rootProject.name = "Ch7"
 include(":app")
- 

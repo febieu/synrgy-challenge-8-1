@@ -14,7 +14,6 @@ import com.example.ch7.presentation.profile.ProfileActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeActivity : AppCompatActivity() {
-
     companion object {
         fun startActivity(context: Context) {
             context.startActivity(Intent(context, HomeActivity::class.java))

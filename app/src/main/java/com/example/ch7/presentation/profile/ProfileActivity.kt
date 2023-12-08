@@ -12,7 +12,6 @@ import com.example.ch7.presentation.blur.BlurActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ProfileActivity : AppCompatActivity() {
-
     companion object {
         fun startActivity(context: Context) {
             context.startActivity(Intent(context, ProfileActivity::class.java))
@@ -49,7 +48,7 @@ class ProfileActivity : AppCompatActivity() {
         viewModel.error.observe(this, ::handleError)
         viewModel.logout.observe(this, ::handleLogout)
         viewModel.profilePhoto.observe(this, ::handleProfilePhoto)
-        //viewModel.outputWorkerInfos.observe(this, ::handleWorkerInfos)
+        // viewModel.outputWorkerInfos.observe(this, ::handleWorkerInfos)
     }
 
     private fun handleUsername(username: String?) {
@@ -74,8 +73,8 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
-    private fun handleProfilePhoto(profilePhoto: String?){
-        profilePhoto?.let{
+    private fun handleProfilePhoto(profilePhoto: String?) {
+        profilePhoto?.let {
             binding?.ivProfile?.setImageURI(Uri.parse(profilePhoto))
         }
     }

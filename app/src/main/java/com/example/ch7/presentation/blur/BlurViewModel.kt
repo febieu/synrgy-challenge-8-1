@@ -15,7 +15,6 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-
 class BlurViewModel(
     private val imageRepository: ImageRepository,
     private val accountRepository: AccountRepository,
@@ -66,5 +65,4 @@ class BlurViewModel(
                 }
         }
     }
-
 }

@@ -1,6 +1,5 @@
 package com.example.ch7.data.remote.response
 
-import com.example.ch7.domain.Movie
 import com.google.gson.annotations.SerializedName
 
 data class Result(
@@ -31,10 +30,10 @@ data class Result(
     @SerializedName("vote_average")
     val voteAverage: Double?,
     @SerializedName("vote_count")
-    val voteCount: Int?
+    val voteCount: Int?,
 )
 
-//fun Result.toMovie(): Movie {
+// fun Result.toMovie(): Movie {
 //    return Movie(
 //        overview = overview.orEmpty(),
 //        originalTitle = originalTitle.orEmpty(),
@@ -42,4 +41,4 @@ data class Result(
 //        id = id ?: -1,
 //        posterPath = posterPath.orEmpty(),
 //    )
-//}
+// }
