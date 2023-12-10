@@ -11,9 +11,11 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlin.coroutines.CoroutineContext
 
 class ProfileViewModel(
     private val accountRepository: AccountRepository,
+    private val dispatcher: CoroutineContext,
 ) : ViewModel() {
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
@@ -35,7 +37,7 @@ class ProfileViewModel(
 
     fun loadProfile() {
         _loading.value = true
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(dispatcher) {
             accountRepository.loadUsername()
                 .combine(
                     accountRepository.loadEmail(),

@@ -49,18 +49,18 @@ private val generalModule =
         single<MovieRepository> { RemoteRepository(get()) }
 
         // usecase
-        single<AuthenticateUseCase> { AuthenticateUseCase(get()) }
-        single<CheckLoginUseCase> { CheckLoginUseCase((get())) }
-        single<SaveTokenUseCase> { SaveTokenUseCase(get()) }
-        single<RegisterUseCase> { RegisterUseCase(get()) }
+        single {AuthenticateUseCase(get())}
+        single {CheckLoginUseCase((get()))}
+        single {SaveTokenUseCase(get())}
+        single {RegisterUseCase(get())}
     }
 
 private val viewModelModule =
     module {
         viewModel { LoginViewModel(get(), get(), get(), get()) }
-        viewModel { HomeViewModel(get()) }
+        viewModel { HomeViewModel(get(), get()) }
         viewModel { RegisterViewModel(get()) }
-        viewModel { ProfileViewModel(get()) }
+        viewModel { ProfileViewModel(get(),get()) }
         viewModel { BlurViewModel(get(), get()) }
     }
 

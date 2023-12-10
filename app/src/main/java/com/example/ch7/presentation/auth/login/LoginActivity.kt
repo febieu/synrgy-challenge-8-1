@@ -16,7 +16,6 @@ class LoginActivity : AppCompatActivity() {
         fun provideIntent(context: Context): Intent {
             return Intent(context, LoginActivity::class.java)
         }
-
         fun startActivity(context: Context) {
             context.startActivity(provideIntent(context))
         }

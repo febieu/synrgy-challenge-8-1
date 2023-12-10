@@ -20,12 +20,33 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
+            //isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
             )
         }
+        debug{
+            isDebuggable = true
+            versionNameSuffix = "-debug"
+        }
     }
+
+    flavorDimensionList += listOf("version")
+
+    productFlavors{
+        create("demo"){
+            dimension = "version"
+            applicationIdSuffix = ".demo"
+            resValue("string", "app_name", "Demo")
+        }
+        create("production"){
+            dimension = "version"
+            applicationIdSuffix = ".prod"
+            resValue("string", "app_name", "Production")
+        }
+    }
+    
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -54,6 +75,8 @@ dependencies {
     testImplementation("org.mockito.kotlin:mockito-kotlin:5.1.0")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     testImplementation("androidx.arch.core:core-testing:2.1.0")
+//    testImplementation ("org.robolectric:robolectric:4.6.1")
+//    testImplementation ("io.mockk:mockk:1.12.0")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation("androidx.test:runner:1.4.0")

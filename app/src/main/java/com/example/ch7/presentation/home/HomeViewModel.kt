@@ -9,9 +9,11 @@ import com.example.ch7.domain.repository.MovieRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlin.coroutines.CoroutineContext
 
 class HomeViewModel(
     private val movieRepository: MovieRepository,
+    private val dispatcher: CoroutineContext,
 ) : ViewModel() {
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
@@ -24,7 +26,7 @@ class HomeViewModel(
 
     fun fetchMovies() {
         _loading.value = true
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(dispatcher) {
             runCatching {
                 movieRepository.fetchMovies()
             }.onFailure { exception ->

@@ -13,7 +13,7 @@ class FakeAuthenticateUseCase : AuthenticateUseCase {
             password.isNotEmpty() &&
             password.isNotBlank()
         ) {
-            return return if (username == "febi" && password == "123456") {
+            return if (username == "febi" && password == "123456") {
                 "token"
             } else {
                 throw UnsupportedOperationException("username dan password salah!")
