@@ -1,11 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.ch7." parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.ch8." parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.ch7." parent="Base.Theme.ch7." />
+    <style name="Theme.ch8." parent="Base.Theme.ch8." />
 
     <style name="PrimaryButton">
         <item name="backgroundTint">#bb9457</item>

@@ -1,12 +1,12 @@
-buildscript{
-    repositories{
-        google()
-        mavenCentral()
-    }
-    dependencies{
-        classpath ("com.android.tools.build:gradle:8.1.1")
-    }
-}
+//buildscript{
+//    repositories{
+//        google()
+//        mavenCentral()
+//    }
+//    dependencies{
+//        classpath ("com.android.tools.build:gradle:8.1.1")
+//    }
+//}
 
 plugins {
     id("com.android.application")
@@ -14,11 +14,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.ch7"
+    namespace = "com.example.ch8"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.ch7"
+        applicationId = "com.example.ch8"
         minSdk = 21
         targetSdk = 34
         versionCode = 1
