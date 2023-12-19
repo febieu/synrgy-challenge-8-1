@@ -1,7 +1,6 @@
 package com.example.ch7.domain.repository
 
 import kotlinx.coroutines.flow.Flow
-
 interface AuthRepository {
     suspend fun validateInput(
         username: String,

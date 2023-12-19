@@ -10,8 +10,9 @@ import com.example.ch7.domain.repository.AccountRepository
 import com.example.ch7.domain.repository.AuthRepository
 import com.example.ch7.domain.repository.ImageRepository
 import com.example.ch7.domain.repository.MovieRepository
+import com.example.ch7.domain.usecase.AuthenticateUseCase
 import com.example.ch7.presentation.auth.login.LoginViewModel
-import com.example.ch7.presentation.auth.login.usecase.AuthenticateUseCase
+import com.example.ch7.presentation.auth.login.usecase.AuthenticateUseCaseImp
 import com.example.ch7.presentation.auth.login.usecase.CheckLoginUseCase
 import com.example.ch7.presentation.auth.login.usecase.SaveTokenUseCase
 import com.example.ch7.presentation.auth.register.RegisterUseCase
@@ -39,18 +40,19 @@ private val generalModule =
         single { provideTMDBService(get()) }
         single { DataStoreManager(get()) }
         single { WorkManager.getInstance(get()) }
+        single <CoroutineContext>{Dispatchers.IO}
 
         // repository
-        single<AccountRepository> { LocalRepository(get(), get()) }
-        single<AuthRepository> { LocalRepository(get(), get()) }
-        single<ImageRepository> { LocalRepository(get(), get()) }
+        single<AccountRepository> {LocalRepository(get(), get())}
+        single<AuthRepository> {LocalRepository(get(), get())}
+        single<ImageRepository> {LocalRepository(get(), get())}
 
         // data
         single<MovieRepository> { RemoteRepository(get()) }
 
         // usecase
-        single {AuthenticateUseCase(get())}
-        single {CheckLoginUseCase((get()))}
+        single<AuthenticateUseCase>{AuthenticateUseCaseImp(get())}
+        single {CheckLoginUseCase(get())}
         single {SaveTokenUseCase(get())}
         single {RegisterUseCase(get())}
     }
