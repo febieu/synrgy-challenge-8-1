@@ -20,7 +20,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: action/checkout@v3
+      - uses: actions/checkout@v3
       - name: Map options
         uses: kanga333/variable-mapper@master
         id: mapper
