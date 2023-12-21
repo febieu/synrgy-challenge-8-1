@@ -1,0 +1,44 @@
+name: Build & Test Workflow Dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      variants:
+        description: Select Variant
+        required: true
+        default: debug
+        type: choice
+        options:
+          - 'debug'
+          - 'release'
+        notes:
+          description: Enter release notes
+          required: false
+          type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checkout@v3
+      - name: Map options
+        uses: kanga333/variable-mapper@master
+        id: mapper
+        with:
+          key: ${{inputs.variants}}
+          map: |
+            {
+              "debug":{
+              "build_types": "Debug"
+              }
+            },
+            {
+              "release": {
+              "build_type": "Release"
+              }
+            }
+          export_to: env
+
+      - name: deploy
+        run: |
+          ./gradlew bundle${{env.build_type}}
