@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Grant execute permission to gradlew
+        run: chmod +x ./gradlew
       - name: Map options
         uses: kanga333/variable-mapper@master
         id: mapper
