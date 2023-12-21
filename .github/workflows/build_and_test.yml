@@ -11,10 +11,10 @@ jobs:
         with:
           fetch-depth: '500'
       - name: build
-        run: ./gradlew assembleDebug
+        run: ./gradlew assemble
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
       - name: test
-        run: ./gradlew testDebug
+        run: ./gradlew test
