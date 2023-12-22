@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Synrgy Challenge 6</string>
+    <string name="application_name">Synrgy Challenge 8</string>
     <string name="title_home">Home</string>
     <string name="hint_username">Insert username</string>
     <string name="hint_password">Insert password</string>
