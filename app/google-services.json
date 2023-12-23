@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "434414670000",
+    "project_id": "synrgy-challenge-59b10",
+    "storage_bucket": "synrgy-challenge-59b10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434414670000:android:ed9907f7c94099bc972b75",
+        "android_client_info": {
+          "package_name": "com.synrgy.ch8"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDR5UCUDvgsKM7OYXnWIBT8ELIfJjD15dc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
