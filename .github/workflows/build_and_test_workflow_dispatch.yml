@@ -38,7 +38,12 @@ jobs:
               }
             }
           export_to: env
-
+      - name: build
+        run: ./gradlew assemble${{env.build_type}}
       - name: deploy
-        run: |
-          ./gradlew assemble${{env.build_type}}
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{secrets.FIREBASE_APP_ID}}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+          groups: testers
+          file: app/production/release/${{env.build_type}}/app-production-release.aab
