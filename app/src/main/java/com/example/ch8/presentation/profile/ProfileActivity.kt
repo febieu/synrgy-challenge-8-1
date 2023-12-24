@@ -38,6 +38,7 @@ class ProfileActivity : AppCompatActivity() {
 
         binding?.ivProfile?.setOnClickListener {
             BlurActivity.startActivity(this)
+//            throw RuntimeException("Test Crash"
         }
     }
 

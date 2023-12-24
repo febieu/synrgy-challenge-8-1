@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:434414670000:android:2d16894d6c5ea4aa972b75",
+        "mobilesdk_app_id": "1:434414670000:android:b4cd419bb9f961ce972b75",
         "android_client_info": {
           "package_name": "com.example.ch8.prod"
         }
@@ -26,9 +26,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:434414670000:android:ed9907f7c94099bc972b75",
+        "mobilesdk_app_id": "1:434414670000:android:3fd16c11e3182abe972b75",
         "android_client_info": {
-          "package_name": "com.synrgy.ch8"
+          "package_name": "com.example.ch8.prod.debug"
         }
       },
       "oauth_client": [],

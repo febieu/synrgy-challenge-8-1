@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
+    id("com.google.firebase.firebase-perf")
 }
 
 android {
@@ -22,7 +23,6 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            //isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
@@ -30,7 +30,7 @@ android {
         }
         debug{
             isDebuggable = true
-            versionNameSuffix = "-debug"
+            applicationIdSuffix = ".debug"
         }
     }
 
@@ -109,5 +109,9 @@ dependencies {
     //firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-config")
     implementation("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-perf")
 }
+
+//apply(plugin = "com.google.gms.google-services")

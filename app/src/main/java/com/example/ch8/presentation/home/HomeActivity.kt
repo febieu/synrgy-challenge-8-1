@@ -3,6 +3,7 @@ package com.example.ch8.presentation.home
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -58,7 +59,12 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun handleError(error: String?) {
-        Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+        if (error != null) {
+            Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+        } else {
+            Log.e("HomeActivity", "Error message is null")
+        }
+//        Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
     }
 
     private fun handleMovies(movies: List<Movie>) {
